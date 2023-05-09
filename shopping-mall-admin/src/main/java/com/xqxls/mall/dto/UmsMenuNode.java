@@ -1,5 +1,6 @@
 package com.xqxls.mall.dto;
 
+import com.xqxls.mall.entity.UmsMenu;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @Description
  */
 @Data
-public class UmsMenuNode {
+public class UmsMenuNode extends UmsMenu {
 
     @ApiModelProperty(value = "子级菜单")
     private List<UmsMenuNode> children;
