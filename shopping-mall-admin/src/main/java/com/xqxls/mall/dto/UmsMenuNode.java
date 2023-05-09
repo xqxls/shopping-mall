@@ -1,6 +1,7 @@
 package com.xqxls.mall.dto;
 
 import com.xqxls.mall.entity.UmsMenu;
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

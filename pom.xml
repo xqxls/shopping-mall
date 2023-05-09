@@ -13,6 +13,7 @@
         <module>shopping-mall-admin</module>
         <module>shopping-mall-common</module>
         <module>shopping-mall-security</module>
+        <module>shopping-mall-pms</module>
     </modules>
 
     <parent>

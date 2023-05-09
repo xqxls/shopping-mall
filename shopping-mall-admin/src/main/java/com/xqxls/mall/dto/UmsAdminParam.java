@@ -1,5 +1,6 @@
 package com.xqxls.mall.dto;
 
+
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
