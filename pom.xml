@@ -45,8 +45,6 @@
         <minio.version>8.4.5</minio.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <fastjson.version>1.2.71</fastjson.version>
-        <shopping-mall-common.version>1.0-SNAPSHOT</shopping-mall-common.version>
-        <shopping-mall-security.version>1.0-SNAPSHOT</shopping-mall-security.version>
     </properties>
 
 

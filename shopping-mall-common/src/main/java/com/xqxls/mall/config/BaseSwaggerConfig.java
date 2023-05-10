@@ -16,6 +16,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.spring.web.plugins.WebFluxRequestHandlerProvider;
 import springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider;
 
+import javax.annotation.Nonnull;
+import javax.validation.constraints.NotNull;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,14 +64,14 @@ public abstract class BaseSwaggerConfig {
     private List<SecurityContext> securityContexts() {
         //设置需要登录认证的路径
         List<SecurityContext> result = new ArrayList<>();
-        result.add(getContextByPath("/*/.*"));
+        result.add(getContextByPath());
         return result;
     }
 
-    private SecurityContext getContextByPath(String pathRegex) {
+    private SecurityContext getContextByPath() {
         return SecurityContext.builder()
                 .securityReferences(defaultAuth())
-                .forPaths(PathSelectors.regex(pathRegex))
+                .forPaths(PathSelectors.regex("/*/.*"))
                 .build();
     }
 
@@ -86,7 +88,7 @@ public abstract class BaseSwaggerConfig {
         return new BeanPostProcessor() {
 
             @Override
-            public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+            public Object postProcessAfterInitialization(@Nonnull Object bean, String beanName) throws BeansException {
                 if (bean instanceof WebMvcRequestHandlerProvider || bean instanceof WebFluxRequestHandlerProvider) {
                     customizeSpringfoxHandlerMappings(getHandlerMappings(bean));
                 }
@@ -105,8 +107,11 @@ public abstract class BaseSwaggerConfig {
             private List<RequestMappingInfoHandlerMapping> getHandlerMappings(Object bean) {
                 try {
                     Field field = ReflectionUtils.findField(bean.getClass(), "handlerMappings");
-                    field.setAccessible(true);
-                    return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
+                    if(field!=null){
+                        field.setAccessible(true);
+                        return (List<RequestMappingInfoHandlerMapping>) field.get(bean);
+                    }
+                    return new ArrayList<>();
                 } catch (IllegalArgumentException | IllegalAccessException e) {
                     throw new IllegalStateException(e);
                 }

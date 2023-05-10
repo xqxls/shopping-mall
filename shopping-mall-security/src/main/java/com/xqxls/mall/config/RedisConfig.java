@@ -1,6 +1,5 @@
 package com.xqxls.mall.config;
 
-import com.xqxls.mall.config.BaseRedisConfig;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;
 
