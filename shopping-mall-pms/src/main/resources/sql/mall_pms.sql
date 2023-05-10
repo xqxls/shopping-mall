@@ -890,3 +890,55 @@ INSERT INTO `pms_sku_stock` VALUES (239, 45, '202211080045001', 2299.00, 250, NU
 INSERT INTO `pms_sku_stock` VALUES (240, 45, '202211080045002', 2499.00, 250, NULL, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20221108/oppo_r8_01.jpg', NULL, NULL, 0, '[{\"key\":\"颜色\",\"value\":\"鸢尾紫\"},{\"key\":\"容量\",\"value\":\"256G\"}]');
 INSERT INTO `pms_sku_stock` VALUES (241, 45, '202211080045003', 2299.00, 250, NULL, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20221108/oppo_r8_02.jpg', NULL, NULL, 0, '[{\"key\":\"颜色\",\"value\":\"晴空蓝\"},{\"key\":\"容量\",\"value\":\"128G\"}]');
 INSERT INTO `pms_sku_stock` VALUES (242, 45, '202211080045004', 2499.00, 250, NULL, 'http://macro-oss.oss-cn-shenzhen.aliyuncs.com/mall/images/20221108/oppo_r8_02.jpg', NULL, NULL, 0, '[{\"key\":\"颜色\",\"value\":\"晴空蓝\"},{\"key\":\"容量\",\"value\":\"256G\"}]');
+
+
+-- ----------------------------
+-- Table structure for cms_prefrence_area_product_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_prefrence_area_product_relation`;
+CREATE TABLE `cms_prefrence_area_product_relation`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `prefrence_area_id` bigint(20) NULL DEFAULT NULL,
+  `product_id` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '优选专区和产品关系表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of cms_prefrence_area_product_relation
+-- ----------------------------
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (1, 1, 12);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (2, 1, 13);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (3, 1, 14);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (4, 1, 18);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (5, 1, 7);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (6, 2, 7);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (7, 1, 22);
+INSERT INTO `cms_prefrence_area_product_relation` VALUES (24, 1, 23);
+
+-- ----------------------------
+-- Table structure for cms_subject_product_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `cms_subject_product_relation`;
+CREATE TABLE `cms_subject_product_relation`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `subject_id` bigint(20) NULL DEFAULT NULL,
+  `product_id` bigint(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '专题商品关系表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of cms_subject_product_relation
+-- ----------------------------
+INSERT INTO `cms_subject_product_relation` VALUES (1, 1, 12);
+INSERT INTO `cms_subject_product_relation` VALUES (2, 1, 13);
+INSERT INTO `cms_subject_product_relation` VALUES (3, 1, 14);
+INSERT INTO `cms_subject_product_relation` VALUES (4, 1, 18);
+INSERT INTO `cms_subject_product_relation` VALUES (5, 1, 7);
+INSERT INTO `cms_subject_product_relation` VALUES (6, 2, 7);
+INSERT INTO `cms_subject_product_relation` VALUES (7, 1, 22);
+INSERT INTO `cms_subject_product_relation` VALUES (29, 1, 23);
+INSERT INTO `cms_subject_product_relation` VALUES (30, 4, 23);
+INSERT INTO `cms_subject_product_relation` VALUES (31, 5, 23);
+INSERT INTO `cms_subject_product_relation` VALUES (68, 2, 26);
+INSERT INTO `cms_subject_product_relation` VALUES (69, 3, 26);
+INSERT INTO `cms_subject_product_relation` VALUES (70, 6, 26);

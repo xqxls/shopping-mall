@@ -5,10 +5,12 @@ import javax.validation.ConstraintValidatorContext;
 
 /**
  * 状态约束校验器
- * Created by xqxls on 2018/4/26.
+ * Created by macro on 2018/4/26.
  */
 public class FlagValidatorClass implements ConstraintValidator<FlagValidator,Integer> {
+
     private String[] values;
+
     @Override
     public void initialize(FlagValidator flagValidator) {
         this.values = flagValidator.value();
@@ -21,8 +23,8 @@ public class FlagValidatorClass implements ConstraintValidator<FlagValidator,Int
             //当状态为空时使用默认值
             return true;
         }
-        for(int i=0;i<values.length;i++){
-            if(values[i].equals(String.valueOf(value))){
+        for (String s : values) {
+            if (s.equals(String.valueOf(value))) {
                 isValid = true;
                 break;
             }

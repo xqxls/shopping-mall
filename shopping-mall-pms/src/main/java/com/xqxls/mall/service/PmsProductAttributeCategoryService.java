@@ -1,6 +1,9 @@
 package com.xqxls.mall.service;
 
+import com.xqxls.mall.dto.PmsProductAttributeCategoryItem;
 import com.xqxls.mall.entity.PmsProductAttributeCategory;
+
+import java.util.List;
 
 
 /**
@@ -11,4 +14,11 @@ import com.xqxls.mall.entity.PmsProductAttributeCategory;
  */
 public interface PmsProductAttributeCategoryService extends IService<PmsProductAttributeCategory> {
 
+    int create(String name);
+
+    int update(Long id, String name);
+
+    List<PmsProductAttributeCategory> getList(Integer pageSize, Integer pageNum);
+
+    List<PmsProductAttributeCategoryItem> getListWithAttr();
 }

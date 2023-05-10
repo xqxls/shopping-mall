@@ -1,6 +1,9 @@
 package com.xqxls.mall.service;
 
+import com.xqxls.mall.dto.PmsBrandParam;
 import com.xqxls.mall.entity.PmsBrand;
+
+import java.util.List;
 
 
 /**
@@ -11,4 +14,13 @@ import com.xqxls.mall.entity.PmsBrand;
  */
 public interface PmsBrandService extends IService<PmsBrand> {
 
+    int createBrand(PmsBrandParam pmsBrandParam);
+
+    int updateBrand(Long id, PmsBrandParam pmsBrandParam);
+
+    List<PmsBrand> listBrand(String keyword, Integer showStatus, Integer pageNum, Integer pageSize);
+
+    int updateShowStatus(List<Long> ids, Integer showStatus);
+
+    int updateFactoryStatus(List<Long> ids, Integer factoryStatus);
 }

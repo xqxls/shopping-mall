@@ -10,4 +10,5 @@
     <result column="attribute_count" jdbcType="INTEGER" property="attributeCount" />
     <result column="param_count" jdbcType="INTEGER" property="paramCount" />
   </resultMap>
+
 </mapper>

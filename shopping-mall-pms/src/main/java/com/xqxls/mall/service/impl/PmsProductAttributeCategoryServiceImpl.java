@@ -1,10 +1,16 @@
 package com.xqxls.mall.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.xqxls.mall.dto.PmsProductAttributeCategoryItem;
+import com.xqxls.mall.mapper.PmsProductAttributeCategoryItemMapper;
 import com.xqxls.mall.service.PmsProductAttributeCategoryService;
 import com.xqxls.mall.entity.PmsProductAttributeCategory;
 import com.xqxls.mall.mapper.PmsProductAttributeCategoryMapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 产品属性分类表 服务实现类
@@ -15,4 +21,35 @@ import org.springframework.stereotype.Service;
 @Service
 public class PmsProductAttributeCategoryServiceImpl extends ServiceImpl<PmsProductAttributeCategoryMapper, PmsProductAttributeCategory> implements PmsProductAttributeCategoryService {
 
+    @Autowired
+    private PmsProductAttributeCategoryMapper productAttributeCategoryMapper;
+
+    @Autowired
+    private PmsProductAttributeCategoryItemMapper pmsProductAttributeCategoryItemMapper;
+
+    @Override
+    public int create(String name) {
+        PmsProductAttributeCategory productAttributeCategory = new PmsProductAttributeCategory();
+        productAttributeCategory.setName(name);
+        return this.add(productAttributeCategory);
+    }
+
+    @Override
+    public int update(Long id, String name) {
+        PmsProductAttributeCategory productAttributeCategory = new PmsProductAttributeCategory();
+        productAttributeCategory.setName(name);
+        productAttributeCategory.setId(id);
+        return this.update(productAttributeCategory);
+    }
+
+    @Override
+    public List<PmsProductAttributeCategory> getList(Integer pageSize, Integer pageNum) {
+        PageHelper.startPage(pageNum,pageSize);
+        return productAttributeCategoryMapper.selectAll();
+    }
+
+    @Override
+    public List<PmsProductAttributeCategoryItem> getListWithAttr() {
+        return pmsProductAttributeCategoryItemMapper.getListWithAttr();
+    }
 }
