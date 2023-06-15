@@ -1,7 +1,7 @@
 package com.xqxls.mall.mapper;
 
 import com.xqxls.mall.base.TkBaseMapper;
-import com.xqxls.mall.entity.UmsRoleResourceRelation;
+import com.xqxls.mall.domain.ums.entity.UmsRoleResourceRelation;
 
 /**
  * 后台角色资源关系表 Mapper 接口

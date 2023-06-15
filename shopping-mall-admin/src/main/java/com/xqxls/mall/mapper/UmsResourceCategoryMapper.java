@@ -1,7 +1,7 @@
 package com.xqxls.mall.mapper;
 
 import com.xqxls.mall.base.TkBaseMapper;
-import com.xqxls.mall.entity.UmsResourceCategory;
+import com.xqxls.mall.domain.ums.entity.UmsResourceCategory;
 
 /**
  * 资源分类表 Mapper 接口

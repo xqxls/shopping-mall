@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xqxls.mall.mapper.UmsResourceCategoryMapper">
-  <resultMap id="BaseResultMap" type="com.xqxls.mall.entity.UmsResourceCategory">
+  <resultMap id="BaseResultMap" type="com.xqxls.mall.domain.ums.entity.UmsResourceCategory">
     <!--
       WARNING - @mbg.generated
     -->

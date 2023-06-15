@@ -1,7 +1,7 @@
 package com.xqxls.mall.bo;
 
-import com.xqxls.mall.entity.UmsAdmin;
-import com.xqxls.mall.entity.UmsResource;
+import com.xqxls.mall.domain.ums.entity.UmsAdmin;
+import com.xqxls.mall.domain.ums.entity.UmsResource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

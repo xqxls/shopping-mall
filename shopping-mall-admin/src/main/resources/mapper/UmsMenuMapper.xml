@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xqxls.mall.mapper.UmsMenuMapper">
-  <resultMap id="BaseResultMap" type="com.xqxls.mall.entity.UmsMenu">
+  <resultMap id="BaseResultMap" type="com.xqxls.mall.domain.ums.entity.UmsMenu">
     <!--
       WARNING - @mbg.generated
     -->
@@ -16,7 +16,7 @@
     <result column="hidden" jdbcType="INTEGER" property="hidden" />
   </resultMap>
 
-  <select id="getMenuList" resultType="com.xqxls.mall.entity.UmsMenu">
+  <select id="getMenuList" resultType="com.xqxls.mall.domain.ums.entity.UmsMenu">
     SELECT
       m.id id,
       m.parent_id parentId,
@@ -39,7 +39,7 @@
       m.id
   </select>
 
-  <select id="getMenuListByRoleId" resultType="com.xqxls.mall.entity.UmsMenu">
+  <select id="getMenuListByRoleId" resultType="com.xqxls.mall.domain.ums.entity.UmsMenu">
     SELECT
       m.id id,
       m.parent_id parentId,

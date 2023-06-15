@@ -1,9 +1,9 @@
 package com.xqxls.mall.mapper;
 
 import com.xqxls.mall.base.TkBaseMapper;
-import com.xqxls.mall.entity.UmsAdminRoleRelation;
-import com.xqxls.mall.entity.UmsResource;
-import com.xqxls.mall.entity.UmsRole;
+import com.xqxls.mall.domain.ums.entity.UmsAdminRoleRelation;
+import com.xqxls.mall.domain.ums.entity.UmsResource;
+import com.xqxls.mall.domain.ums.entity.UmsRole;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

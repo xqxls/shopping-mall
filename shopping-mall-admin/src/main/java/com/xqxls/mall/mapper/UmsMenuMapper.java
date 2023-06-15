@@ -1,7 +1,7 @@
 package com.xqxls.mall.mapper;
 
 import com.xqxls.mall.base.TkBaseMapper;
-import com.xqxls.mall.entity.UmsMenu;
+import com.xqxls.mall.domain.ums.entity.UmsMenu;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package com.xqxls.mall.config;
 
-import com.xqxls.mall.entity.UmsResource;
+import com.xqxls.mall.domain.ums.entity.UmsResource;
+import com.xqxls.mall.domain.ums.service.UmsAdminService;
 import com.xqxls.mall.component.DynamicSecurityService;
-import com.xqxls.mall.service.UmsAdminService;
-import com.xqxls.mall.service.UmsResourceService;
+import com.xqxls.mall.domain.ums.service.UmsResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
