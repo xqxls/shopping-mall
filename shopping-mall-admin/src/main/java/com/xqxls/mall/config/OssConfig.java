@@ -6,19 +6,24 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * OSS对象存储相关配置
- * Created by xqxls on 2018/5/17.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description SS对象存储相关配置
  */
 @Configuration
 public class OssConfig {
+
     @Value("${aliyun.oss.endpoint}")
-    private String ALIYUN_OSS_ENDPOINT;
+    private String aLiYunOssEndPoint;
+
     @Value("${aliyun.oss.accessKeyId}")
-    private String ALIYUN_OSS_ACCESSKEYID;
+    private String aLiYunOssAccessKeyId;
+
     @Value("${aliyun.oss.accessKeySecret}")
-    private String ALIYUN_OSS_ACCESSKEYSECRET;
+    private String aLiYunOssAccessKeySecret;
+
     @Bean
     public OSSClient ossClient(){
-        return new OSSClient(ALIYUN_OSS_ENDPOINT,ALIYUN_OSS_ACCESSKEYID,ALIYUN_OSS_ACCESSKEYSECRET);
+        return new OSSClient(aLiYunOssEndPoint,aLiYunOssAccessKeyId,aLiYunOssAccessKeySecret);
     }
 }

@@ -11,13 +11,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * SpringSecurity需要的用户信息封装类
- * Created by xqxls on 2018/4/26.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description SpringSecurity需要的用户信息封装类
  */
 public class AdminUserDetails implements UserDetails {
-    //后台用户
+    /** 后台用户 **/
     private final UmsAdmin umsAdmin;
-    //拥有资源列表
+    /** 拥有资源列表 **/
     private final List<UmsResource> resourceList;
 
     public AdminUserDetails(UmsAdmin umsAdmin,List<UmsResource> resourceList) {

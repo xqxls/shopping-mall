@@ -87,6 +87,9 @@ public class UmsMenuServiceImpl extends ServiceImpl<UmsMenuMapper, UmsMenu> impl
 
     /**
      * 将UmsMenu转化为UmsMenuNode并设置children属性
+     * @param menu 菜单
+     * @param menuList 整个菜单列表
+     * @return 菜单节点
      */
     private UmsMenuNode covertMenuNode(UmsMenu menu, List<UmsMenu> menuList) {
         UmsMenuNode node = new UmsMenuNode();

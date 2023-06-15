@@ -5,8 +5,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
- * MyBatis相关配置
- * Created by xqxls on 2019/4/8.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description MyBatis相关配置
  */
 @Configuration
 @EnableTransactionManagement

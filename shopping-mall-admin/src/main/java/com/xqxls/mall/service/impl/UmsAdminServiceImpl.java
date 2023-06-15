@@ -83,7 +83,9 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
     public UmsAdmin getAdminByUsername(String username) {
         //先从缓存中获取数据
         UmsAdmin admin = getCacheService().getAdmin(username);
-        if (admin != null) return admin;
+        if (admin != null) {
+            return admin;
+        }
         //缓存中没有从数据库中获取
         Example example = new Example(UmsAdmin.class);
         Example.Criteria criteria = example.createCriteria();
@@ -98,6 +100,7 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
         return null;
     }
 
+    @Override
     public UmsAdminCacheService getCacheService() {
         return SpringUtil.getBean(UmsAdminCacheService.class);
     }
@@ -262,7 +265,9 @@ public class UmsAdminServiceImpl extends ServiceImpl<UmsAdminMapper, UmsAdmin> i
      */
     private void insertLoginLog(String username) {
         UmsAdmin admin = getAdminByUsername(username);
-        if(admin==null) return;
+        if(admin==null) {
+            return;
+        }
         UmsAdminLoginLog loginLog = new UmsAdminLoginLog();
         loginLog.setAdminId(admin.getId());
         loginLog.setCreateTime(new Date());
