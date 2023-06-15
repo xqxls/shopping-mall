@@ -11,8 +11,9 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Collection;
 
 /**
- * 动态权限决策管理器，用于判断用户是否有访问权限
- * Created by xqxls on 2020/2/7.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 动态权限决策管理器，用于判断用户是否有访问权限
  */
 public class DynamicAccessDecisionManager implements AccessDecisionManager {
 

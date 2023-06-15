@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * JwtToken生成的工具类
  * JWT token的格式：header.payload.signature
  * header的格式（算法、token的类型）：
  * {"alg": "HS512","typ": "JWT"}
@@ -23,7 +22,9 @@ import java.util.Map;
  * {"sub":"wang","created":1489079981393,"exp":1489684781}
  * signature的生成算法：
  * HMACSHA512(base64UrlEncode(header) + "." +base64UrlEncode(payload),secret)
- * Created by xqxls on 2018/4/26.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description JwtToken生成的工具类
  */
 public class JwtTokenUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtTokenUtil.class);
@@ -144,7 +145,7 @@ public class JwtTokenUtil {
             return null;
         }
         //如果token在30分钟之内刚刷新过，返回原token
-        if(tokenRefreshJustBefore(token,30*60)){
+        if(tokenRefreshJustBefore(token)){
             return token;
         }else{
             claims.put(CLAIM_KEY_CREATED, new Date());
@@ -155,16 +156,13 @@ public class JwtTokenUtil {
     /**
      * 判断token在指定时间内是否刚刚刷新过
      * @param token 原token
-     * @param time 指定时间（秒）
+     *
      */
-    private boolean tokenRefreshJustBefore(String token, int time) {
+    private boolean tokenRefreshJustBefore(String token) {
         Claims claims = getClaimsFromToken(token);
         Date created = claims.get(CLAIM_KEY_CREATED, Date.class);
         Date refreshDate = new Date();
         //刷新时间在创建时间的指定时间内
-        if(refreshDate.after(created)&&refreshDate.before(DateUtil.offsetSecond(created,time))){
-            return true;
-        }
-        return false;
+        return refreshDate.after(created) && refreshDate.before(DateUtil.offsetSecond(created, 1800));
     }
 }

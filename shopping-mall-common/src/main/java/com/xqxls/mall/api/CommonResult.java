@@ -1,8 +1,9 @@
 package com.xqxls.mall.api;
 
 /**
- * 通用返回结果封装类
- * Created by xqxls on 2019/4/19.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 通用返回结果封装类
  */
 public class CommonResult<T> {
     /**

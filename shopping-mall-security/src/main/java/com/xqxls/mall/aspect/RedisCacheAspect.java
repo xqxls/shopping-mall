@@ -15,8 +15,9 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 /**
- * Redis缓存切面，防止Redis宕机影响正常业务逻辑
- * Created by xqxls on 2020/3/17.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description Redis缓存切面，防止Redis宕机影响正常业务逻辑
  */
 @Aspect
 @Component

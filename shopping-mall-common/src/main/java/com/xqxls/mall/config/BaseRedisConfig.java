@@ -21,8 +21,9 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.time.Duration;
 
 /**
- * Redis基础配置
- * Created by xqxls on 2020/6/19.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description Redis基础配置
  */
 @Configuration
 public class BaseRedisConfig {

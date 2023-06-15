@@ -8,9 +8,9 @@ import org.apache.ibatis.annotations.Options;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: huzhuo
- * @Date: Created in 2023/4/26 19:44
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 基础扩展Mapper
  */
 @tk.mybatis.mapper.annotation.RegisterMapper
 public interface ExtMapper<T> {
@@ -18,7 +18,7 @@ public interface ExtMapper<T> {
      * 批量插入全部字段，包括主键
      *
      * @param recordList 数据列表
-     * @return
+     * @return 成功插入条数
      */
     @Options(keyProperty = "id")
     @InsertProvider(type = SpecialSqlExtProvider.class, method = "insertBatch")
@@ -28,7 +28,7 @@ public interface ExtMapper<T> {
      * 根据主键批量删除
      *
      * @param recordList 数据列表
-     * @return
+     * @return 成功删除条数
      */
     @Options(keyProperty = "id")
     @DeleteProvider(type = SpecialSqlExtProvider.class, method = "deleteByIdList")

@@ -3,8 +3,9 @@ package com.xqxls.mall.exception;
 import com.xqxls.mall.api.IErrorCode;
 
 /**
- * 自定义API异常
- * Created by xqxls on 2020/2/27.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 自定义API异常
  */
 public class ApiException extends RuntimeException {
     private IErrorCode errorCode;

@@ -13,10 +13,10 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-
 /**
- * SpringSecurity相关配置，仅用于配置SecurityFilterChain
- * Created by xqxls on 2019/11/5.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description SpringSecurity相关配置，仅用于配置SecurityFilterChain
  */
 @Configuration
 @EnableWebSecurity

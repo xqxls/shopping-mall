@@ -17,15 +17,15 @@ import springfox.documentation.spring.web.plugins.WebFluxRequestHandlerProvider;
 import springfox.documentation.spring.web.plugins.WebMvcRequestHandlerProvider;
 
 import javax.annotation.Nonnull;
-import javax.validation.constraints.NotNull;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Swagger基础配置
- * Created by xqxls on 2020/7/16.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description Swagger基础配置
  */
 public abstract class BaseSwaggerConfig {
 
@@ -71,7 +71,7 @@ public abstract class BaseSwaggerConfig {
     private SecurityContext getContextByPath() {
         return SecurityContext.builder()
                 .securityReferences(defaultAuth())
-                .forPaths(PathSelectors.regex("/*/.*"))
+                .operationSelector(oc->oc.requestMappingPattern().matches("/*/.*"))
                 .build();
     }
 
@@ -121,6 +121,7 @@ public abstract class BaseSwaggerConfig {
 
     /**
      * 自定义Swagger配置
+     * @return Swagger配置信息
      */
     public abstract SwaggerProperties swaggerProperties();
 }

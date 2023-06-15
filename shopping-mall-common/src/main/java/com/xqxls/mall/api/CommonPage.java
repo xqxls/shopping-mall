@@ -6,8 +6,9 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 /**
- * 通用分页数据封装类
- * Created by xqxls on 2019/4/19.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 通用分页数据封装类
  */
 public class CommonPage<T> {
     /**

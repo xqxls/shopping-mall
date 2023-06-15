@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * 自定义无权限访问的返回结果
- * Created by xqxls on 2018/4/26.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 自定义无权限访问的返回结果
  */
 public class RestfulAccessDeniedHandler implements AccessDeniedHandler{
     @Override

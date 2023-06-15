@@ -12,8 +12,9 @@ import javax.annotation.PostConstruct;
 import java.util.*;
 
 /**
- * 动态权限数据源，用于获取动态权限规则
- * Created by xqxls on 2020/2/7.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 动态权限数据源，用于获取动态权限规则
  */
 public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
@@ -33,7 +34,9 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
 
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
-        if (configAttributeMap == null) this.loadDataSource();
+        if (configAttributeMap == null) {
+            this.loadDataSource();
+        }
         List<ConfigAttribute>  configAttributes = new ArrayList<>();
         //获取当前访问的路径
         String url = ((FilterInvocation) o).getRequestUrl();

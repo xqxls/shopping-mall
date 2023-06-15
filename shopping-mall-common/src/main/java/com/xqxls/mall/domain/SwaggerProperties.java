@@ -5,8 +5,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Swagger自定义配置
- * Created by xqxls on 2020/7/16.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description Swagger自定义配置
  */
 @Data
 @EqualsAndHashCode

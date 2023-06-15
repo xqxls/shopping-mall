@@ -3,9 +3,11 @@ package com.xqxls.mall.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+
 /**
- * Controller层的日志封装类
- * Created by xqxls on 2018/4/26.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description Controller层的日志封装类
  */
 @Data
 @EqualsAndHashCode

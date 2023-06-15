@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * 动态权限过滤器，用于实现基于路径的动态权限过滤
- * Created by xqxls on 2020/2/7.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 动态权限过滤器，用于实现基于路径的动态权限过滤
  */
 public class DynamicSecurityFilter extends AbstractSecurityInterceptor implements Filter {
 

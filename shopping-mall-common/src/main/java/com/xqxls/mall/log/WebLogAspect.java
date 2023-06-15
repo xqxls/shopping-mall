@@ -30,8 +30,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 统一日志处理切面
- * Created by xqxls on 2018/4/26.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description 统一日志处理切面
  */
 @Aspect
 @Component
@@ -56,8 +57,8 @@ public class WebLogAspect {
         long startTime = System.currentTimeMillis();
         //获取当前请求对象
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
-        //记录请求信息(通过Logstash传入Elasticsearch)
         WebLog webLog = new WebLog();
         Object result = joinPoint.proceed();
         Signature signature = joinPoint.getSignature();
@@ -85,7 +86,6 @@ public class WebLogAspect {
         logMap.put("parameter",webLog.getParameter());
         logMap.put("spendTime",webLog.getSpendTime());
         logMap.put("description",webLog.getDescription());
-//        LOGGER.info("{}", JSONUtil.parse(webLog));
         LOGGER.info(Markers.appendEntries(logMap), JSONUtil.parse(webLog).toString());
         return result;
     }

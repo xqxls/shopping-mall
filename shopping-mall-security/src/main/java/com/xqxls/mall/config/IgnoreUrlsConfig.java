@@ -8,8 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SpringSecurity白名单资源路径配置
- * Created by xqxls on 2018/11/5.
+ * @author xqxls
+ * @create 2023-06-15 10:17
+ * @Description SpringSecurity白名单资源路径配置
  */
 @Data
 @Component
