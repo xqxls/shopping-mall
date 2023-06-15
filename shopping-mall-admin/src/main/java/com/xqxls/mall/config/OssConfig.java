@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author xqxls
  * @create 2023-06-15 10:17
- * @Description SS对象存储相关配置
+ * @Description OSS对象存储相关配置
  */
 @Configuration
 public class OssConfig {

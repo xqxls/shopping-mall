@@ -14,7 +14,17 @@ import java.util.List;
  */
 public interface UmsResourceMapper extends TkBaseMapper<UmsResource> {
 
+    /**
+     * 通过用户ID查询资源列表
+     * @param adminId 用户ID
+     * @return 资源列表
+     */
     List<UmsResource> getResourceList(@Param("adminId") Long adminId);
 
+    /**
+     * 通过角色ID查询资源列表
+     * @param roleId 角色ID
+     * @return 资源列表
+     */
     List<UmsResource> getResourceListByRoleId(@Param("roleId") Long roleId);
 }

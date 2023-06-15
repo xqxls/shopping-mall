@@ -10,9 +10,10 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface PmsProductResultMapper {
 
-
     /**
-     * 获取商品编辑信息
+     * 根据商品ID获取商品更新信息
+     * @param id 商品ID
+     * @return 商品更新信息
      */
     PmsProductResult getUpdateInfo(@Param("id") Long id);
 }

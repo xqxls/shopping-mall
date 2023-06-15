@@ -10,5 +10,9 @@ import java.util.List;
  * @Description
  */
 public interface PmsProductAttributeCategoryItemMapper {
+    /**
+     * 获取商品属性
+     * @return 商品属性列表
+     */
     List<PmsProductAttributeCategoryItem> getListWithAttr();
 }

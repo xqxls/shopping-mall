@@ -14,7 +14,19 @@ import java.util.List;
  */
 public interface PmsSkuStockService extends IService<PmsSkuStock> {
 
+    /**
+     * 获取商品库存
+     * @param pid 父级ID
+     * @param keyword 搜索关键词
+     * @return 商品库存列表
+     */
     List<PmsSkuStock> getList(Long pid, String keyword);
 
+    /**
+     * 更新商品库存
+     * @param pid 父级ID
+     * @param skuStockList 商品库存列表
+     * @return 成功更新条数
+     */
     int update(Long pid, List<PmsSkuStock> skuStockList);
 }

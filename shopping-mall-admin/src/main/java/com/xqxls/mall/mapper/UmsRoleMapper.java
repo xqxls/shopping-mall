@@ -16,16 +16,23 @@ import java.util.List;
  */
 public interface UmsRoleMapper extends TkBaseMapper<UmsRole> {
 
+
     /**
      * 根据后台用户ID获取菜单
+     * @param adminId 用户ID
+     * @return 菜单列表
      */
     List<UmsMenu> getMenuList(@Param("adminId") Long adminId);
     /**
      * 根据角色ID获取菜单
+     * @param roleId 角色ID
+     * @return 菜单列表
      */
     List<UmsMenu> getMenuListByRoleId(@Param("roleId") Long roleId);
     /**
      * 根据角色ID获取资源
+     * @param roleId 角色ID
+     * @return 资源列表
      */
     List<UmsResource> getResourceListByRoleId(@Param("roleId") Long roleId);
 }

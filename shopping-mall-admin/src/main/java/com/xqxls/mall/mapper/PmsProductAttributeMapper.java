@@ -14,5 +14,10 @@ import java.util.List;
  * @date 2023-05-09 5:39 下午
  */
 public interface PmsProductAttributeMapper extends TkBaseMapper<PmsProductAttribute> {
+    /**
+     * 通过商品分类ID获取商品属性信息
+     * @param productCategoryId 商品分类ID
+     * @return 商品属性列表
+     */
     List<ProductAttrInfo> getProductAttrInfo(@Param("id") Long productCategoryId);
 }

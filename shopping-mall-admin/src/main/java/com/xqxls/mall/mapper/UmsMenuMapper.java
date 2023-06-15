@@ -14,7 +14,17 @@ import java.util.List;
  */
 public interface UmsMenuMapper extends TkBaseMapper<UmsMenu> {
 
+    /**
+     * 通过用户ID查询菜单列表
+     * @param adminId 用户ID
+     * @return 菜单列表
+     */
     List<UmsMenu> getMenuList(@Param("adminId") Long adminId);
 
+    /**
+     * 通过角色ID查询菜单列表
+     * @param roleId 角色ID
+     * @return 菜单列表
+     */
     List<UmsMenu> getMenuListByRoleId(@Param("roleId") Long roleId);
 }

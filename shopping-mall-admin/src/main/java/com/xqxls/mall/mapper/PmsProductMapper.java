@@ -12,6 +12,11 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface PmsProductMapper extends TkBaseMapper<PmsProduct> {
 
+    /**
+     * 更新商品
+     * @param brandName 品牌名称
+     * @param brandId 品牌ID
+     */
     void updateByBrand(@Param("brandName") String brandName, @Param("brandId") Long brandId);
 
 }

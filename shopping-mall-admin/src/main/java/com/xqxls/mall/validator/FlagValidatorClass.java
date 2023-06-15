@@ -4,8 +4,9 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * 状态约束校验器
- * Created by macro on 2018/4/26.
+ * @author 胡卓
+ * @create 2023-04-26 16:54
+ * @Description 状态约束校验器
  */
 public class FlagValidatorClass implements ConstraintValidator<FlagValidator,Integer> {
 

@@ -11,5 +11,9 @@ import java.util.List;
  */
 public interface PmsProductCategoryWithChildrenItemMapper {
 
+    /**
+     * 获取商品分类信息
+     * @return 商品分类列表
+     */
     List<PmsProductCategoryWithChildrenItem> listWithChildren();
 }

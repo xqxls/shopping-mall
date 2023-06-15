@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author 胡卓
  * @create 2023-04-26 16:54
- * @Description
+ * @Description Object对象转List集合
  */
 @Slf4j
 public class ObjectUtil {
