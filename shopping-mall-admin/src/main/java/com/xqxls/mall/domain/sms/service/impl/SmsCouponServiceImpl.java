@@ -15,6 +15,7 @@ import com.xqxls.mall.mapper.SmsCouponProductRelationMapper;
 import com.xqxls.mall.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -41,6 +42,7 @@ public class SmsCouponServiceImpl extends ServiceImpl<SmsCouponMapper, SmsCoupon
     private SmsCouponParamMapper smsCouponParamMapper;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int create(SmsCouponParam couponParam) {
         couponParam.setCount(couponParam.getPublishCount());
         couponParam.setUseCount(0);
@@ -65,6 +67,7 @@ public class SmsCouponServiceImpl extends ServiceImpl<SmsCouponMapper, SmsCoupon
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int delete(Long id) {
         //删除优惠券
         int count = couponMapper.deleteByPrimaryKey(id);
@@ -88,6 +91,7 @@ public class SmsCouponServiceImpl extends ServiceImpl<SmsCouponMapper, SmsCoupon
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int update(Long id, SmsCouponParam couponParam) {
         couponParam.setId(id);
         int count =couponMapper.updateByPrimaryKey(couponParam);

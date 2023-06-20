@@ -30,8 +30,18 @@ redis:
   key:
     admin: 'ums:admin'
     resourceList: 'ums:resourceList'
+    authCode: 'ums:authCode'
+    orderId: 'oms:orderId'
+    member: 'ums:member'
   expire:
     common: 86400 # 24小时
+    authCode: 90 # 验证码超期时间
+
+# 消息队列定义
+rabbitmq:
+  queue:
+    name:
+      cancelOrder: cancelOrderQueue
 
 secure:
   ignored:
@@ -52,6 +62,10 @@ secure:
       - /admin/info
       - /admin/logout
       - /minio/upload
+      - /sso/**
+      - /home/**
+      - /product/**
+      - /brand/**
 
 aliyun:
   oss:
