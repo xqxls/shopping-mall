@@ -261,9 +261,10 @@ public class PmsProductServiceImpl extends ServiceImpl<PmsProductMapper, PmsProd
             PmsSkuStock skuStock = skuStockList.get(i);
             if(StrUtil.isEmpty(skuStock.getSkuCode())){
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-                String sb = sdf.format(new Date()) +        //日期
-                        String.format("%04d", productId) +  //四位商品id
-                        String.format("%03d", i + 1);       //三位索引id
+                // 日期 + 四位商品id + 三位索引id
+                String sb = sdf.format(new Date()) +
+                        String.format("%04d", productId) +
+                        String.format("%03d", i + 1);
                 skuStock.setSkuCode(sb);
             }
         }
