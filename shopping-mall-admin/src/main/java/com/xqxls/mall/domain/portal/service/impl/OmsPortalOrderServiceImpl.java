@@ -10,7 +10,7 @@ import com.xqxls.mall.domain.oms.entity.OmsOrderItem;
 import com.xqxls.mall.domain.oms.entity.OmsOrderSetting;
 import com.xqxls.mall.domain.oms.service.OmsCartItemService;
 import com.xqxls.mall.domain.pms.entity.PmsSkuStock;
-import com.xqxls.mall.domain.portal.component.CancelOrderSender;
+//import com.xqxls.mall.domain.portal.component.CancelOrderSender;
 import com.xqxls.mall.domain.portal.dto.CartPromotionItem;
 import com.xqxls.mall.domain.portal.dto.ConfirmOrderResult;
 import com.xqxls.mall.domain.portal.dto.OrderParam;
@@ -75,8 +75,8 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     private OmsOrderSettingMapper orderSettingMapper;
     @Autowired
     private OmsOrderItemMapper orderItemMapper;
-    @Autowired
-    private CancelOrderSender cancelOrderSender;
+//    @Autowired
+//    private CancelOrderSender cancelOrderSender;
 
     @Value("${redis.key.orderId}")
     private String redisKeyOrderId;
@@ -338,7 +338,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         OmsOrderSetting orderSetting = orderSettingMapper.selectByPrimaryKey(1L);
         long delayTimes = orderSetting.getNormalOrderOvertime() * 60 * 1000;
         //发送延迟消息
-        cancelOrderSender.sendMessage(orderId, delayTimes);
+//        cancelOrderSender.sendMessage(orderId, delayTimes);
     }
 
     @Override

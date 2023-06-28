@@ -14,18 +14,18 @@ import org.springframework.stereotype.Component;
  * @author xqxls
  * @date 2023-05-09 5:39 下午
  */
-@Component
-@RabbitListener(queues = "mall.order.cancel")
-public class CancelOrderReceiver {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(CancelOrderReceiver.class);
-
-    @Autowired
-    private OmsPortalOrderService portalOrderService;
-
-    @RabbitHandler
-    public void handle(Long orderId){
-        portalOrderService.cancelOrder(orderId);
-        LOGGER.info("process orderId:{}",orderId);
-    }
-}
+//@Component
+//@RabbitListener(queues = "mall.order.cancel")
+//public class CancelOrderReceiver {
+//
+//    private static final Logger LOGGER = LoggerFactory.getLogger(CancelOrderReceiver.class);
+//
+//    @Autowired
+//    private OmsPortalOrderService portalOrderService;
+//
+//    @RabbitHandler
+//    public void handle(Long orderId){
+//        portalOrderService.cancelOrder(orderId);
+//        LOGGER.info("process orderId:{}",orderId);
+//    }
+//}
