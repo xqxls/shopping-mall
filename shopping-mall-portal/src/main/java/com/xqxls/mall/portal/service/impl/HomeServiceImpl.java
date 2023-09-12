@@ -62,7 +62,8 @@ public class HomeServiceImpl implements HomeService {
         PmsProductExample example = new PmsProductExample();
         example.createCriteria()
                 .andDeleteStatusEqualTo(0)
-                .andPublishStatusEqualTo(1);
+                .andPublishStatusEqualTo(1)
+                .andRecommandStatusEqualTo(1);
         return productMapper.selectByExample(example);
     }
 
