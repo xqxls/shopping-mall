@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 应用启动入口
- * Created by xqxls on 2018/4/26.
+ * Created by xqxls on 2023/4/26.
  */
 @SpringBootApplication
 public class MallAdminApplication {

@@ -1,9 +1,6 @@
-server:
-  port: 8081
-
 spring:
   application:
-    name: shopping-mall-admin
+    name: mall-admin
   profiles:
     active: dev #默认为开发环境
   servlet:
@@ -13,11 +10,11 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-  main:
-    allow-bean-definition-overriding: true
 
 mybatis:
-  mapper-locations: classpath:/mapper/**/*.xml
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:mapper/*.xml
 
 jwt:
   tokenHeader: Authorization #JWT存储的请求头
@@ -30,18 +27,8 @@ redis:
   key:
     admin: 'ums:admin'
     resourceList: 'ums:resourceList'
-    authCode: 'ums:authCode'
-    orderId: 'oms:orderId'
-    member: 'ums:member'
   expire:
     common: 86400 # 24小时
-    authCode: 90 # 验证码超期时间
-
-# 消息队列定义
-rabbitmq:
-  queue:
-    name:
-      cancelOrder: cancelOrderQueue
 
 secure:
   ignored:
@@ -62,17 +49,13 @@ secure:
       - /admin/info
       - /admin/logout
       - /minio/upload
-      - /sso/**
-      - /home/**
-      - /product/**
-      - /brand/**
 
 aliyun:
   oss:
     endpoint: oss-cn-shenzhen.aliyuncs.com # oss对外服务的访问域名
     accessKeyId: test # 访问身份验证中用到用户标识
     accessKeySecret: test # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
-    bucketName: xqxls-oss # oss的存储空间
+    bucketName: macro-oss # oss的存储空间
     policy:
       expire: 300 # 签名有效期(S)
     maxSize: 10 # 上传文件大小(M)
