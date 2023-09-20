@@ -110,7 +110,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
             UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
             token = jwtTokenUtil.generateToken(userDetails);
-//            updateLoginTimeByUsername(username);
+            updateLoginTimeByUsername(username);
             insertLoginLog(username);
         } catch (AuthenticationException e) {
             LOGGER.warn("登录异常:{}", e.getMessage());
@@ -171,7 +171,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     public int update(Long id, UmsAdmin admin) {
         admin.setId(id);
         UmsAdmin rawAdmin = adminMapper.selectByPrimaryKey(id);
-        if(rawAdmin.getPassword().equals(admin.getPassword())){
+        if(passwordEncoder.matches(admin.getPassword(),rawAdmin.getPassword())){
             //与原加密密码相同的不需要修改
             admin.setPassword(null);
         }else{

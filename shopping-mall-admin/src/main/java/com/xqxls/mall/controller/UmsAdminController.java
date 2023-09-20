@@ -131,7 +131,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation("修改指定用户信息")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody UmsAdmin admin) {
         int count = adminService.update(id, admin);
@@ -142,7 +142,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation("修改指定用户密码")
-    @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+    @RequestMapping(value = "/updatePassword", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult updatePassword(@Validated @RequestBody UpdateAdminPasswordParam updatePasswordParam) {
         int status = adminService.updatePassword(updatePasswordParam);
@@ -160,7 +160,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation("删除指定用户信息")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {
         int count = adminService.delete(id);
@@ -171,7 +171,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation("修改帐号状态")
-    @RequestMapping(value = "/updateStatus/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateStatus/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult updateStatus(@PathVariable Long id,@RequestParam(value = "status") Integer status) {
         UmsAdmin umsAdmin = new UmsAdmin();
@@ -184,7 +184,7 @@ public class UmsAdminController {
     }
 
     @ApiOperation("给用户分配角色")
-    @RequestMapping(value = "/role/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/allocateRole", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateRole(@RequestParam("adminId") Long adminId,
                                    @RequestParam("roleIds") List<Long> roleIds) {

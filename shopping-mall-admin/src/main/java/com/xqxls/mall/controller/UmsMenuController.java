@@ -40,7 +40,7 @@ public class UmsMenuController {
     }
 
     @ApiOperation("修改后台菜单")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult update(@PathVariable Long id,
                                @RequestBody UmsMenu umsMenu) {
@@ -61,7 +61,7 @@ public class UmsMenuController {
     }
 
     @ApiOperation("根据ID删除后台菜单")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {
         int count = menuService.delete(id);
@@ -91,7 +91,7 @@ public class UmsMenuController {
     }
 
     @ApiOperation("修改菜单显示状态")
-    @RequestMapping(value = "/updateHidden/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateHidden/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult updateHidden(@PathVariable Long id, @RequestParam("hidden") Integer hidden) {
         int count = menuService.updateHidden(id, hidden);

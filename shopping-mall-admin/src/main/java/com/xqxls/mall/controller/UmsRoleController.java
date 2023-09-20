@@ -37,7 +37,7 @@ public class UmsRoleController {
     }
 
     @ApiOperation("修改角色")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult update(@PathVariable Long id, @RequestBody UmsRole role) {
         int count = roleService.update(id, role);
@@ -48,7 +48,7 @@ public class UmsRoleController {
     }
 
     @ApiOperation("批量删除角色")
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     @ResponseBody
     public CommonResult delete(@RequestParam("ids") List<Long> ids) {
         int count = roleService.delete(ids);
@@ -77,7 +77,7 @@ public class UmsRoleController {
     }
 
     @ApiOperation("修改角色状态")
-    @RequestMapping(value = "/updateStatus/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateStatus/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult updateStatus(@PathVariable Long id, @RequestParam(value = "status") Integer status) {
         UmsRole umsRole = new UmsRole();

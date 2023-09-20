@@ -43,7 +43,7 @@ public class UmsResourceController {
     }
 
     @ApiOperation("修改后台资源")
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public CommonResult update(@PathVariable Long id,
                                @RequestBody UmsResource umsResource) {
@@ -65,7 +65,7 @@ public class UmsResourceController {
     }
 
     @ApiOperation("根据ID删除后台资源")
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public CommonResult delete(@PathVariable Long id) {
         int count = resourceService.delete(id);
