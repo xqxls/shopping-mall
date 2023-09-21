@@ -28,7 +28,7 @@ minio:
 logging:
   level:
     root: info
-    com.macro.mall: debug
+    com.xqxls.mall: debug
 
 logstash:
   host: localhost
