@@ -21,7 +21,7 @@ import java.util.Date;
 
 /**
  * MinIO对象存储管理Controller
- * Created by macro on 2019/12/25.
+ * Created by xqxls on 2019/12/25.
  */
 @Controller
 @Api(tags = "MinioController")
