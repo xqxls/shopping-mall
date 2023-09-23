@@ -2,7 +2,9 @@ package com.xqxls.mall.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
+import com.xqxls.mall.common.exception.Asserts;
 import com.xqxls.mall.mapper.SmsHomeNewProductMapper;
+import com.xqxls.mall.model.SmsHomeBrandExample;
 import com.xqxls.mall.model.SmsHomeNewProduct;
 import com.xqxls.mall.model.SmsHomeNewProductExample;
 import com.xqxls.mall.service.SmsHomeNewProductService;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 首页新品推荐管理Service实现类
@@ -21,6 +24,8 @@ public class SmsHomeNewProductServiceImpl implements SmsHomeNewProductService {
     private SmsHomeNewProductMapper homeNewProductMapper;
     @Override
     public int create(List<SmsHomeNewProduct> homeNewProductList) {
+        List<Long> ids = homeNewProductList.stream().map(SmsHomeNewProduct::getProductId).collect(Collectors.toList());
+        assertRepeat(ids);
         for (SmsHomeNewProduct SmsHomeNewProduct : homeNewProductList) {
             SmsHomeNewProduct.setRecommendStatus(1);
             SmsHomeNewProduct.setSort(0);
@@ -66,5 +71,15 @@ public class SmsHomeNewProductServiceImpl implements SmsHomeNewProductService {
         }
         example.setOrderByClause("sort desc");
         return homeNewProductMapper.selectByExample(example);
+    }
+
+    @Override
+    public void assertRepeat(List<Long> ids) {
+        SmsHomeNewProductExample example = new SmsHomeNewProductExample();
+        example.createCriteria().andProductIdIn(ids);
+        long count = homeNewProductMapper.countByExample(example);
+        if(count>0){
+            Asserts.fail("推荐商品不能重复");
+        }
     }
 }

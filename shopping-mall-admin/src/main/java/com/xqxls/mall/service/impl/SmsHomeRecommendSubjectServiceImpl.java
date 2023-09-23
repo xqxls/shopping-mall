@@ -2,7 +2,10 @@ package com.xqxls.mall.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
+import com.xqxls.mall.common.exception.Asserts;
 import com.xqxls.mall.mapper.SmsHomeRecommendSubjectMapper;
+import com.xqxls.mall.model.SmsHomeRecommendProduct;
+import com.xqxls.mall.model.SmsHomeRecommendProductExample;
 import com.xqxls.mall.model.SmsHomeRecommendSubject;
 import com.xqxls.mall.model.SmsHomeRecommendSubjectExample;
 import com.xqxls.mall.service.SmsHomeRecommendSubjectService;
@@ -10,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 首页专题推荐管理Service实现类
@@ -21,12 +25,23 @@ public class SmsHomeRecommendSubjectServiceImpl implements SmsHomeRecommendSubje
     private SmsHomeRecommendSubjectMapper smsHomeRecommendSubjectMapper;
     @Override
     public int create(List<SmsHomeRecommendSubject> recommendSubjectList) {
+        List<Long> ids = recommendSubjectList.stream().map(SmsHomeRecommendSubject::getSubjectId).collect(Collectors.toList());
+        assertRepeat(ids);
         for (SmsHomeRecommendSubject recommendSubject : recommendSubjectList) {
             recommendSubject.setRecommendStatus(1);
             recommendSubject.setSort(0);
             smsHomeRecommendSubjectMapper.insert(recommendSubject);
         }
         return recommendSubjectList.size();
+    }
+
+    public void assertRepeat(List<Long> ids) {
+        SmsHomeRecommendSubjectExample example = new SmsHomeRecommendSubjectExample();
+        example.createCriteria().andSubjectIdIn(ids);
+        long count = smsHomeRecommendSubjectMapper.countByExample(example);
+        if(count>0){
+            Asserts.fail("推荐专题不能重复");
+        }
     }
 
     @Override

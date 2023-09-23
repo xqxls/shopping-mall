@@ -35,4 +35,10 @@ public interface SmsHomeNewProductService {
      * 分页查询推荐
      */
     List<SmsHomeNewProduct> list(String productName, Integer recommendStatus, Integer pageSize, Integer pageNum);
+
+    /**
+     * 唯一条件判断
+     * @param ids
+     */
+    void assertRepeat(List<Long> ids);
 }

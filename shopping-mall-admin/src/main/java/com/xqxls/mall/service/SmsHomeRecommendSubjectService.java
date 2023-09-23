@@ -35,4 +35,10 @@ public interface SmsHomeRecommendSubjectService {
      * 分页查询推荐
      */
     List<SmsHomeRecommendSubject> list(String subjectName, Integer recommendStatus, Integer pageSize, Integer pageNum);
+
+    /**
+     * 唯一性校验
+     * @param ids
+     */
+    void assertRepeat(List<Long> ids);
 }

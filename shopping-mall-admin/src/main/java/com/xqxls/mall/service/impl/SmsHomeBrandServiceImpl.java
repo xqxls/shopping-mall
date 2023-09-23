@@ -2,6 +2,7 @@ package com.xqxls.mall.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
+import com.xqxls.mall.common.exception.Asserts;
 import com.xqxls.mall.mapper.SmsHomeBrandMapper;
 import com.xqxls.mall.model.SmsHomeBrand;
 import com.xqxls.mall.model.SmsHomeBrandExample;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 首页品牌管理Service实现类
@@ -21,12 +23,23 @@ public class SmsHomeBrandServiceImpl implements SmsHomeBrandService {
     private SmsHomeBrandMapper homeBrandMapper;
     @Override
     public int create(List<SmsHomeBrand> homeBrandList) {
+        List<Long> ids = homeBrandList.stream().map(SmsHomeBrand::getBrandId).collect(Collectors.toList());
+        assertRepeat(ids);
         for (SmsHomeBrand smsHomeBrand : homeBrandList) {
             smsHomeBrand.setRecommendStatus(1);
             smsHomeBrand.setSort(0);
             homeBrandMapper.insert(smsHomeBrand);
         }
         return homeBrandList.size();
+    }
+
+    public void assertRepeat(List<Long> ids) {
+        SmsHomeBrandExample example = new SmsHomeBrandExample();
+        example.createCriteria().andBrandIdIn(ids);
+        long count = homeBrandMapper.countByExample(example);
+        if(count>0){
+            Asserts.fail("推荐品牌不能重复");
+        }
     }
 
     @Override
