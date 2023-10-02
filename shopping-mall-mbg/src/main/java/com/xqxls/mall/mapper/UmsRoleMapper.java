@@ -28,4 +28,8 @@ public interface UmsRoleMapper {
     int updateByPrimaryKeySelective(UmsRole record);
 
     int updateByPrimaryKey(UmsRole record);
+
+    int insertList(@Param("list") List<UmsRole> list);
+
+    List<UmsRole> selectPageList(@Param("offset") Integer offset,@Param("limit") Integer limit);
 }

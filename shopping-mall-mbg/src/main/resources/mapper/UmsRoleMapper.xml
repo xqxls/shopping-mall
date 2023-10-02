@@ -69,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, description, admin_count, create_time, status, sort
+    id, name, description, admin_count, create_time, status, sort , number
   </sql>
   <select id="selectByExample" parameterType="com.xqxls.mall.model.UmsRoleExample" resultMap="BaseResultMap">
     select
@@ -240,4 +240,27 @@
       sort = #{sort,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <insert id="insertList" parameterType="com.xqxls.mall.model.UmsRole">
+    insert into ums_role (name, description, admin_count,
+    create_time, status, sort ,number
+    )
+    values
+    <foreach collection="list" separator="," item="item" index="index">
+      (#{item.name,jdbcType=VARCHAR},
+      #{item.description,jdbcType=VARCHAR},
+      #{item.adminCount,jdbcType=INTEGER},
+      #{item.createTime,jdbcType=TIMESTAMP},
+      #{item.status,jdbcType=INTEGER},
+      #{item.sort,jdbcType=INTEGER},
+      #{item.number,jdbcType=BIGINT} )
+    </foreach>
+  </insert>
+
+  <select id="selectPageList"  resultType="com.xqxls.mall.model.UmsRole">
+    select
+    <include refid="Base_Column_List" />
+     from ums_role
+      where number > #{offset,jdbcType=BIGINT} limit #{limit}
+  </select>
+
 </mapper>

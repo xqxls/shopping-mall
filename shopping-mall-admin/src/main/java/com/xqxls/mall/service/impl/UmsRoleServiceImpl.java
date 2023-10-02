@@ -2,6 +2,7 @@ package com.xqxls.mall.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
+import com.xqxls.mall.common.api.CommonPage;
 import com.xqxls.mall.dao.UmsRoleDao;
 import com.xqxls.mall.mapper.UmsRoleMapper;
 import com.xqxls.mall.mapper.UmsRoleMenuRelationMapper;
@@ -9,6 +10,7 @@ import com.xqxls.mall.mapper.UmsRoleResourceRelationMapper;
 import com.xqxls.mall.model.*;
 import com.xqxls.mall.service.UmsAdminCacheService;
 import com.xqxls.mall.service.UmsRoleService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ import java.util.List;
  * Created by xqxls on 2018/9/30.
  */
 @Service
+@Slf4j
 public class UmsRoleServiceImpl implements UmsRoleService {
     @Autowired
     private UmsRoleMapper roleMapper;
@@ -37,6 +40,11 @@ public class UmsRoleServiceImpl implements UmsRoleService {
         role.setAdminCount(0);
         role.setSort(0);
         return roleMapper.insert(role);
+    }
+
+    @Override
+    public int insertList(List<UmsRole> roleList) {
+        return roleMapper.insertList(roleList);
     }
 
     @Override
@@ -60,13 +68,25 @@ public class UmsRoleServiceImpl implements UmsRoleService {
     }
 
     @Override
-    public List<UmsRole> list(String keyword, Integer pageSize, Integer pageNum) {
-        PageHelper.startPage(pageNum, pageSize);
+    public CommonPage<UmsRole> list(String keyword, Integer pageSize, Integer pageNum) {
+        log.info("开始查询……");
+        Long startTime = System.currentTimeMillis();
         UmsRoleExample example = new UmsRoleExample();
         if (!StrUtil.isEmpty(keyword)) {
             example.createCriteria().andNameLike("%" + keyword + "%");
         }
-        return roleMapper.selectByExample(example);
+        Long total = roleMapper.countByExample(example);
+        List<UmsRole> list = roleMapper.selectPageList((pageNum-1)*pageSize,pageSize);
+        CommonPage<UmsRole> result = new CommonPage<>();
+        result.setPageNum(pageNum);
+        result.setPageSize(pageSize);
+        result.setTotal(total);
+        result.setTotalPage((int) ((total+pageSize-1)/pageSize));
+        result.setList(list);
+        Long endTime = System.currentTimeMillis();
+        log.info("查询耗时:"+(endTime-startTime));
+        log.info("结束查询……");
+        return result;
     }
 
     @Override

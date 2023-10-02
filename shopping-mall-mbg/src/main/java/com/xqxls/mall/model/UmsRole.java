@@ -8,6 +8,8 @@ import java.util.Date;
 public class UmsRole implements Serializable {
     private Long id;
 
+    private Long number;
+
     @ApiModelProperty(value = "名称")
     private String name;
 
@@ -99,5 +101,13 @@ public class UmsRole implements Serializable {
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
     }
 }

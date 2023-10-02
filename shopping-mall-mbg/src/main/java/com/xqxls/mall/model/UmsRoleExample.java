@@ -165,6 +165,16 @@ public class UmsRoleExample {
             return (Criteria) this;
         }
 
+        public Criteria andNumberGreaterThan(Long value) {
+            addCriterion("number >", value, "number");
+            return (Criteria) this;
+        }
+
+        public Criteria andNumberGreaterThanOrEqualTo(Long value) {
+            addCriterion("number >=", value, "number");
+            return (Criteria) this;
+        }
+
         public Criteria andNameIsNull() {
             addCriterion("name is null");
             return (Criteria) this;

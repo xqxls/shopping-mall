@@ -1,5 +1,6 @@
 package com.xqxls.mall.service;
 
+import com.xqxls.mall.common.api.CommonPage;
 import com.xqxls.mall.model.UmsMenu;
 import com.xqxls.mall.model.UmsResource;
 import com.xqxls.mall.model.UmsRole;
@@ -16,6 +17,11 @@ public interface UmsRoleService {
      * 添加角色
      */
     int create(UmsRole role);
+
+    /**
+     * 批量添加角色
+     */
+    int insertList(List<UmsRole> roleList);
 
     /**
      * 修改角色信息
@@ -35,7 +41,7 @@ public interface UmsRoleService {
     /**
      * 分页获取角色列表
      */
-    List<UmsRole> list(String keyword, Integer pageSize, Integer pageNum);
+    CommonPage<UmsRole> list(String keyword, Integer pageSize, Integer pageNum);
 
     /**
      * 根据管理员ID获取对应菜单
